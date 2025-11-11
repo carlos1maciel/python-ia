@@ -259,153 +259,98 @@ model.start_chat()
 #INTERAGIR COM O CHAT
 corpos_emails = [
     """Prezados Senhores,
-
 Espero que esta mensagem os encontre bem.
-
 Encaminho em anexo o relatório mensal referente às atividades desenvolvidas no período de outubro. O documento contempla os principais indicadores de desempenho, metas atingidas, pendências em aberto e sugestões de melhoria para os próximos ciclos.
-
 Solicito, por gentileza, que realizem a leitura atenta do material e, caso haja dúvidas ou considerações, estou à disposição para esclarecimentos ou reuniões complementares.
-
 Agradeço pela atenção e colaboração de sempre.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezada equipe,
-
 Cumprimentando cordialmente, venho por meio deste confirmar a realização da reunião de alinhamento estratégico, previamente agendada para sexta-feira, dia 15 de novembro, às 14h, na sala de conferências do 3º andar.
-
 A pauta principal será a revisão dos objetivos trimestrais, análise dos resultados obtidos até o momento e definição de ações prioritárias para o próximo período. Solicito que todos tragam seus respectivos relatórios atualizados e estejam preparados para contribuir com sugestões e observações pertinentes.
-
 Contamos com a presença de todos para garantir um encontro produtivo.
-
 Cordialmente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome do Entrevistador],
-
 Gostaria de expressar minha sincera gratidão pela oportunidade de participar da entrevista realizada no dia 10 de novembro, referente à vaga de [Nome da Vaga] em sua respeitável empresa.
-
 Foi uma experiência enriquecedora poder conhecer mais sobre os valores, projetos e desafios da organização, bem como compartilhar um pouco da minha trajetória profissional e das competências que acredito poder agregar à equipe.
-
 Reitero meu interesse pela posição e coloco-me à disposição para quaisquer etapas adicionais do processo seletivo.
-
 Agradeço novamente pela atenção e gentileza com que fui recebido(a).
-
 Atenciosamente,
 [Seu Nome]""",
 
-    """Prezados,
 
+    """Prezados,
 Espero que estejam bem.
-
 Venho por meio deste solicitar a emissão da segunda via do boleto referente ao mês de outubro, vinculado ao contrato nº [Número do Contrato]. Por algum motivo, não recebi o documento dentro do prazo habitual e, para evitar qualquer transtorno, gostaria de regularizar a pendência o quanto antes.
-
 Caso necessário, posso fornecer novamente os dados cadastrais ou qualquer outra informação que facilite o processo.
-
 Agradeço antecipadamente pela atenção e aguardo retorno com o boleto atualizado.
-
 Cordialmente,
 [Seu Nome]""",
 
     """Prezados,
-
 É com grande satisfação que convidamos V.Sa. para participar do evento corporativo de lançamento do nosso novo produto, que ocorrerá no dia 25 de novembro, às 19h, no auditório principal da sede da empresa.
-
 O evento contará com a presença de nossos principais parceiros, demonstrações exclusivas, coquetel de recepção e uma apresentação especial sobre as inovações que estamos trazendo ao mercado. Será uma excelente oportunidade para networking e troca de experiências.
-
 Solicitamos a gentileza de confirmar sua presença até o dia 20 de novembro, por meio do e-mail eventos@empresa.com.br.
-
 Contamos com sua participação.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome],
-
 Informamos que haverá uma manutenção programada em nossos sistemas no próximo sábado, dia 18 de novembro, das 22h às 4h. Durante esse período, os serviços estarão temporariamente indisponíveis.
-
 A manutenção tem como objetivo aprimorar a segurança e a estabilidade da plataforma, garantindo uma melhor experiência para todos os usuários.
-
 Agradecemos pela compreensão e permanecemos à disposição para quaisquer esclarecimentos.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome],
-
 Gostaríamos de parabenizá-lo(a) pelo excelente desempenho demonstrado no último projeto. Sua dedicação, comprometimento e capacidade de liderança foram fundamentais para o sucesso da iniciativa.
-
 Reconhecemos e valorizamos sua contribuição, e esperamos continuar contando com seu talento em futuros desafios.
-
 Receba nossos sinceros cumprimentos.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezados,
-
 Comunicamos que, excepcionalmente, o expediente será encerrado às 16h na próxima sexta-feira, dia 17 de novembro, em virtude de evento interno de confraternização.
-
 Solicitamos que eventuais demandas urgentes sejam encaminhadas até quinta-feira para que possamos atendê-las dentro do prazo.
-
 Agradecemos pela compreensão.
-
 Cordialmente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome],
-
 Estamos com uma campanha promocional exclusiva para clientes fidelizados, válida até o dia 30 de novembro. Os descontos especiais abrangem uma seleção de produtos e serviços estratégicos para o seu negócio.
-
 Para mais informações, acesse nosso site ou entre em contato com nossa equipe comercial.
-
 Será um prazer atendê-lo(a).
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezados,
-
 Encaminho em anexo a proposta comercial revisada, conforme solicitado em nossa última reunião. O documento contempla os ajustes discutidos, incluindo prazos, valores e condições de pagamento.
-
 Fico à disposição para esclarecimentos adicionais ou agendamento de nova reunião para tratativas finais.
-
 Agradeço pela oportunidade de colaborar com sua empresa.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome],
-
 Gostaria de confirmar minha participação no workshop de inovação que será realizado no dia 15 de novembro, às 9h, no auditório da sede.
-
 Agradeço pela oportunidade de integrar esse momento de aprendizado e troca de experiências.
-
 Caso haja necessidade de documentação complementar, estou à disposição.
-
 Cordialmente,
 [Seu Nome]""",
 
     """Prezados,
-
 Informamos que houve uma atualização no cronograma do projeto [Nome do Projeto]. A nova versão contempla ajustes nas datas de entrega, redistribuição de tarefas e inclusão de etapas adicionais.
-
 Encaminhamos em anexo o documento revisado para ciência e adequação das atividades.
-
 Estamos à disposição para discutir os impactos e alinhar os próximos passos.
-
 Atenciosamente,
 [Seu Nome]""",
 
     """Prezado(a) [Nome],
-
 Agradecemos pela parceria ao longo deste ano. Sua colaboração foi essencial para o desenvolvimento de nossos projetos e para o fortalecimento de nossa atuação no mercado.
-
 Desejamos boas festas e um novo ano repleto de realizações, saúde e prosperidade.
-
 Conte sempre conosco.
-
 Atenciosamente,
 [Seu Nome]"""
 ]
