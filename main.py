@@ -254,7 +254,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 #CRIA CHAT
-model.start_chat()
+# model.start_chat()
 
 #INTERAGIR COM O CHAT
 corpos_emails = [
@@ -356,8 +356,12 @@ Atenciosamente,
 ]
 
 # print(len(corpos_emails))
+def resume_email(corpos_emails):
+    for i, email in enumerate (corpos_emails):
+        pergunta = (f"Resumir email em no maximo 15 palavras", email)
+        response = model.generate_content(pergunta)
+        print(f"Resumo do email {i+1}: {response.text}")
+        print("-" * 50)
 
-for email in corpos_emails:
-    pergunta = (f"Resumir email em no maximo 15 palavras", email)
-    response = model.generate_content(pergunta)
-    print(response.text)
+
+resume_email(corpos_emails)
