@@ -254,7 +254,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 #CRIA CHAT
-# model.start_chat()
+model.start_chat()
 
 #INTERAGIR COM O CHAT
 # corpos_emails = [
@@ -373,3 +373,12 @@ model = genai.GenerativeModel("gemini-2.5-flash")
 #   base_url="https://api.groq.com/openai/v1",
 #   api_key=os.environ.get("GROQ_API_KEY")
 # )
+
+
+pergunta = ["""Explique sobre a teoria de alan turing em no maximo 100 palavras.""", 
+            """quem foi alan turing?""", 
+            """quais anos o brasil ganhou a copa do mundo?"""
+           ]
+for p in pergunta:
+    response = model.generate_content(p)
+    print(response.text)
