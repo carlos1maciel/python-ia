@@ -242,21 +242,21 @@
 # aloca_alunos_salas(texto1, salas_de_aula)
 
 
-import os
-import google.generativeai as genai
-from dotenv import load_dotenv
-load_dotenv()
+# import os
+# import google.generativeai as genai
+# from dotenv import load_dotenv
+# load_dotenv()
 
-#CONFIGURAR CHAVE DA API
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+# #CONFIGURAR CHAVE DA API
+# genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-#CRIA MODELO
-model = genai.GenerativeModel("gemini-2.5-flash")
+# #CRIA MODELO
+# model = genai.GenerativeModel("gemini-2.5-flash")
 
-#CRIA CHAT
-model.start_chat()
+# #CRIA CHAT
+# model.start_chat()
 
-#INTERAGIR COM O CHAT
+# #INTERAGIR COM O CHAT
 # corpos_emails = [
 #     """Prezados Senhores,
 # Espero que esta mensagem os encontre bem.
@@ -355,17 +355,17 @@ model.start_chat()
 # [Seu Nome]"""
 # ]
 
-# print(len(corpos_emails))
+# # print(len(corpos_emails))
 # def resume_email(corpos_emails):
 #     for i, email in enumerate (corpos_emails):
 #         pergunta = (f"Resumir email em no maximo 15 palavras", email)
 #         response = model.generate_content(pergunta)
-#         print(f"Resumo do email {i+1}: {response.text}")
+#         resumo = []
+#         resumo.append((f"Resumo do email {i+1}: {response.text}"))
+#         print(resumo)
 #         print("-" * 50)
 
-
 # resume_email(corpos_emails)
-
 
 # import openai
 
@@ -375,10 +375,45 @@ model.start_chat()
 # )
 
 
-pergunta = ["""Explique sobre a teoria de alan turing em no maximo 100 palavras.""", 
-            """quem foi alan turing?""", 
-            """quais anos o brasil ganhou a copa do mundo?"""
-           ]
-for p in pergunta:
-    response = model.generate_content(p)
-    print(response.text)
+# pergunta = ["""Explique sobre a teoria de alan turing em no maximo 100 palavras.""", 
+#             """quem foi alan turing?""", 
+#             """quais anos o brasil ganhou a copa do mundo?"""
+#            ]
+# for p in pergunta:
+#     response = model.generate_content(p)
+#     print(response.text)
+
+import os
+from dotenv import load_dotenv
+from groq import Groq
+
+load_dotenv()
+
+#CONFIGURAR CHAVE DA API
+client_groq = Groq(api_key=os.getenv("GROQ_API_KEY"))
+
+pergunta = "o que é ml?"
+
+completion = client_groq.chat.completions.create(
+    model="openai/gpt-oss-20b",
+    messages=[
+        {
+            "role": "user",
+            "content": pergunta
+        }
+    ],
+    temperature=1,
+    max_completion_tokens=1024,
+    top_p=1,
+    reasoning_effort="medium",
+    stream=True,
+    stop=None,
+)
+
+for chunk in completion:
+    print(chunk.choices[0].delta.content or "", end="")
+
+
+# lista = ['a', 'b', 'c', 'd']
+# for i in range(10):
+#     print(lista[i % len(lista)])  # Acessa sempre um índice válido na lista
